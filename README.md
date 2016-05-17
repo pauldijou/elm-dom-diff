@@ -12,6 +12,6 @@ cd elm-dom-diff
 
 Then open `index.html` in your favorite browser.
 
-When opening the first item, it will update the `class` attribute and add text inside it. When open the second item, it will remove the node and create a new one. You can check the console to see the mutation events.
+When opening the first and third items, it will update the `class` attribute and add text inside it with a nice CSS transition. When opening the second item, it will remove the node and create a new one. You can check the console to see the mutation events.
 
-So what's the difference? Nearly none... Both items follow the same rules except one is declared directly inside `Main.elm` while the other resides in its own module following the Elm architecture.
+So what's the difference? Nearly none... All items follow the same rules except the **first** is declared directly inside `Main.elm` while the others resides in their own module following the Elm architecture. The difference between **second** and **third** is that **second** uses `Html.App.map` inside `Maybe.withDefault` while the other is doing the inverse.
