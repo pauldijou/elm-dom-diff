@@ -1,0 +1,16 @@
+button {
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.item {
+  opacity: 0;
+  -webkit-transition: opacity 1000ms;
+  -o-transition: opacity 1000ms;
+  transition: opacity 1000ms;
+}
+
+.item.open {
+  opacity: 1;
+  margin-bottom: 20px;
+}

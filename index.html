@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <script type="text/javascript" src="Main.js"></script>
+  <script type="text/javascript">
+    function displayRecord(record) {
+      if (record.type === 'childList') {
+        console.log(record.target.localName + '.' + (record.target.getAttribute('class') || '').replace(/ /g, '.'));
+        console.log('  Added:', record.addedNodes.length, record.addedNodes);
+        console.log('  Removed:', record.removedNodes.length, record.removedNodes);
+      } else if (record.type === 'attributes') {
+        console.log('Attribute [' + record.attributeName + '] changed from [' + record.oldValue + '] to [' + record.target.getAttribute(record.attributeName) + '] on', record.target);
+      } else {
+        console.log(record);
+      }
+    }
+
+    var observer = new MutationObserver(function (records) {
+      records.forEach(displayRecord);
+      console.log('-----------------------------------------');
+    });
+
+    observer.observe(document, {
+      subtree: true,
+      childList: true,
+      attributes: true
+    });
+
+    Elm.Main.fullscreen();
+  </script>
+</body>
+</html>
